@@ -1,0 +1,36 @@
+.story {
+	padding: 10px;
+	margin: 5px;
+	background-color: #CCC;
+}
+
+.release {
+	list-style-type: none;
+}
+
+.release li{
+	padding: 10px;
+	margin: 5px;
+	background-color: #CCC;
+}
+
+.menu-actions {
+	list-style-type: none;
+}
+
+.menu-actions li{
+	display: inline;
+	float: right;
+}
+
+.menu-actions li a {
+	padding: 10px;
+	background-color: #CCC;
+	margin-left: 5px;
+}
+
+.menu-actions li a:hover {
+	padding: 10px;
+	background-color: #AAA;
+	margin-left: 5px;
+}
