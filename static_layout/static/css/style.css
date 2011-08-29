@@ -4,12 +4,19 @@
 	background-color: #CCC;
 }
 
+.being-dragged {
+	height: 20px;
+	width: 20px;
+	background-color: #729F27;
+	text-indent: -9999px;
+}
+
 .release {
 	list-style-type: none;
 }
 
 .release li{
-	padding: 10px;
+	padding: 20px;
 	margin: 5px;
 	background-color: #CCC;
 }

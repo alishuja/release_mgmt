@@ -11,7 +11,16 @@
 		<script src="static/js/jquery-ui-1.8.16.custom.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 		$(document).ready(function(){
-			$( ".draggable" ).draggable({ revert: "invalid", cursorAt: { cursor: "crosshair", top: -5, left: -5 } });
+			$( ".draggable" ).draggable({
+				revert: "invalid", 
+				cursorAt: { cursor: "crosshair", top: -5, left: -5 },
+				start: function() {
+					$(this).addClass("being-dragged");   // change the dimensions to make the draggable fit
+				},
+				stop: function() {
+					$(this).removeClass("being-dragged");
+				}
+			});
 			$( ".droppable" ).droppable({
 				accept: ".draggable",
 				drop: function( event, ui ) {
