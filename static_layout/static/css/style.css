@@ -1,4 +1,23 @@
-.story {
+.menu {
+	z-index: 2;
+	height: 50px;
+	background-color: #FFF;
+}
+
+.content-area {
+	margin-top: 80px;
+}
+
+.storylist {
+	list-style-type: none;
+}
+
+.sidebar {
+	display: block;
+	margin-top: 80px;
+}
+
+.storylist li {
 	padding: 10px;
 	margin: 5px;
 	background-color: #CCC;
