@@ -2,21 +2,22 @@
 @{
     ViewBag.Title = "Index";
 }
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<h2>Projects</h2>
 
-<div>
-    <ul>
+<div class="grid_12 secondary-actions">
+    <h2>Projects</h2>
+    @Html.ActionLink("+ Project", "Create", "Project", null, new { @class = "buttonlink right action-link"})
+</div>
+<div class="grid_12">
+    <ul class="item-list">
     @foreach (var item in Model)
     {
         <li>
             <h2>@Html.DisplayFor(modelItem => item.Name)</h2>
             <p>@Html.DisplayFor(modelItem => item.Description)</p>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID })
-            @Html.ActionLink("Details", "Details", new { id=item.ID })
-            @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { onclick = "return confirm('Sure you want to delete?');"})
+			<div class="bar-wrap"><div class="bar" style="width: 12%;"><p class="center">12&#37;</p></div></div>
+            @Html.ActionLink("Edit", "Edit", "Project", null, new { @class = "buttonlink right", id=item.ID })
+            @Html.ActionLink("Details", "Details", "Project", null, new { @class = "buttonlink right", id = item.ID })
+            @Html.ActionLink("Delete", "Delete", "Project", null, new { @class = "buttonlink right", id = item.ID, onclick = "return confirm('Sure you want to delete?');" })
         </li>
     }
     </ul>

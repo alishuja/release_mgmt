@@ -5,3 +5,10 @@ c:\users\sampo\documents\visual studio 2010\Projects\ReleaseMan\ReleaseMan\bin\E
 c:\users\sampo\documents\visual studio 2010\Projects\ReleaseMan\ReleaseMan\bin\EntityFramework.xml
 c:\users\sampo\documents\visual studio 2010\Projects\ReleaseMan\ReleaseMan\obj\Debug\ReleaseMan.dll
 c:\users\sampo\documents\visual studio 2010\Projects\ReleaseMan\ReleaseMan\obj\Debug\ReleaseMan.pdb
+C:\Users\Henri Pajala\Desktop\codecamp\release_mgmt\ReleaseMan\ReleaseMan\bin\ReleaseMan.dll
+C:\Users\Henri Pajala\Desktop\codecamp\release_mgmt\ReleaseMan\ReleaseMan\bin\ReleaseMan.pdb
+C:\Users\Henri Pajala\Desktop\codecamp\release_mgmt\ReleaseMan\ReleaseMan\bin\EntityFramework.dll
+C:\Users\Henri Pajala\Desktop\codecamp\release_mgmt\ReleaseMan\ReleaseMan\bin\EntityFramework.xml
+C:\Users\Henri Pajala\Desktop\codecamp\release_mgmt\ReleaseMan\ReleaseMan\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Henri Pajala\Desktop\codecamp\release_mgmt\ReleaseMan\ReleaseMan\obj\Debug\ReleaseMan.dll
+C:\Users\Henri Pajala\Desktop\codecamp\release_mgmt\ReleaseMan\ReleaseMan\obj\Debug\ReleaseMan.pdb
