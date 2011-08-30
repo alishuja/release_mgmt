@@ -1,0 +1,81 @@
+﻿@model IEnumerable<ReleaseMan.Models.Release>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Releases</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Project
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Stories
+        </th>
+        <th>
+            Issues
+        </th>
+         <th>
+            Notes
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Project.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            <ul>
+                @Html.ActionLink("Stories", "Index", "Story", new { id = item.ID }, null)
+                @foreach (var story in item.Stories)
+                { 
+                    <li>
+                    @Html.ActionLink(story.Name, "Details", "Release", new { id = story.ID }, null)
+                    </li>
+                }
+            </ul>
+        </td>
+        <td>
+            <ul>
+                @Html.ActionLink("Issues", "Index", "Issue", new { id = item.ID }, null)
+                @foreach (var issue in item.Issues)
+                { 
+                    <li>
+                    @Html.ActionLink(issue.Name, "Details", "Release", new { id = issue.ID }, null)
+                    </li>
+                }
+            </ul>
+        </td>
+        <td>
+            <ul>
+                @Html.ActionLink("Notes", "Index", "Note", new { id = item.ID }, null)
+                @foreach (var note in item.Notes)
+                { 
+                    <li>
+                    @Html.ActionLink(note.Name, "Details", "Release", new { id = note.ID },null)
+                    </li>
+                }
+            </ul>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>

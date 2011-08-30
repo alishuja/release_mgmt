@@ -1,0 +1,7 @@
+c:\users\sampo\documents\visual studio 2010\Projects\ReleaseMan\ReleaseMan\obj\Debug\ResolveAssemblyReference.cache
+c:\users\sampo\documents\visual studio 2010\Projects\ReleaseMan\ReleaseMan\bin\ReleaseMan.dll
+c:\users\sampo\documents\visual studio 2010\Projects\ReleaseMan\ReleaseMan\bin\ReleaseMan.pdb
+c:\users\sampo\documents\visual studio 2010\Projects\ReleaseMan\ReleaseMan\bin\EntityFramework.dll
+c:\users\sampo\documents\visual studio 2010\Projects\ReleaseMan\ReleaseMan\bin\EntityFramework.xml
+c:\users\sampo\documents\visual studio 2010\Projects\ReleaseMan\ReleaseMan\obj\Debug\ReleaseMan.dll
+c:\users\sampo\documents\visual studio 2010\Projects\ReleaseMan\ReleaseMan\obj\Debug\ReleaseMan.pdb
