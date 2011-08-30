@@ -4,22 +4,23 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Project: @Html.DisplayFor(model => model.Project.Name)</h2>
 
-<fieldset>
-    <legend>Release</legend>
+<h3>Release: @Html.DisplayFor(model => model.Name)</h3>
 
-    <div class="display-label">Project</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Project.Name)
-    </div>
-
-    <div class="display-label">Name</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
-    </div>
-</fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit release details", "Edit", new { id=Model.ID })
 </p>
+
+<div>
+    <h3>Release stories:</h3>
+    <ul>
+    @foreach (var item in Model.Stories)
+    {
+        <li>
+            <h4>Story: @Html.DisplayFor(modelItem => item.Name)</h4>
+            <p>Description: @Html.DisplayFor(modelItem => item.Description)</p>
+        </li>
+    }
+    </ul>
+</div>

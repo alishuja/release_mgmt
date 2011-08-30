@@ -4,22 +4,32 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<p>@Html.ActionLink("Create New Release", "Create", "Release")</p>
 
-<fieldset>
-    <legend>Project</legend>
+<h2>Project: @Html.DisplayFor(model => model.Name)</h2>
 
-    <div class="display-label">Name</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
-    </div>
+<p>Project description: @Html.DisplayFor(model => model.Description)</p>
 
-    <div class="display-label">Description</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Description)
-    </div>
-</fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div>
+    <h3>Releases:</h3>
+
+    <ul>
+        @foreach (var item in Model.Releases)
+        {
+            
+            
+
+        <li>
+
+        @Html.DisplayFor(modelItem => item.Name)
+        @Html.ActionLink("Edit", "Edit", "Release", new { id=item.ID }, null)
+        @Html.ActionLink("Details", "Details", "Release", new { id = item.ID }, null)
+        @Html.ActionLink("Delete", "Delete", "Release", new { id = item.ID }, new { onclick = "return confirm('Sure you want to delete?');"})
+        </li>
+
+        }
+
+
+    </ul>
+
+</div>

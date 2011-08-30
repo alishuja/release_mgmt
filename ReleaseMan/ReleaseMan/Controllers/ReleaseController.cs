@@ -50,7 +50,7 @@ namespace ReleaseMan.Controllers
             {
                 db.Releases.Add(release);
                 db.SaveChanges();
-                return RedirectToAction("Index");  
+                return RedirectToAction("Details", "Project", new { id = release.ProjectId });  
             }
 
             ViewBag.ProjectId = new SelectList(db.Projects, "ID", "Name", release.ProjectId);
@@ -89,19 +89,9 @@ namespace ReleaseMan.Controllers
         public ActionResult Delete(int id)
         {
             Release release = db.Releases.Find(id);
-            return View(release);
-        }
-
-        //
-        // POST: /Release/Delete/5
-
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
-        {            
-            Release release = db.Releases.Find(id);
             db.Releases.Remove(release);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Project", new { id = release.ProjectId});
         }
 
         protected override void Dispose(bool disposing)

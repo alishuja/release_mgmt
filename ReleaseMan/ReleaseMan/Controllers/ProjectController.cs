@@ -84,16 +84,6 @@ namespace ReleaseMan.Controllers
         public ActionResult Delete(int id)
         {
             Project project = db.Projects.Find(id);
-            return View(project);
-        }
-
-        //
-        // POST: /Project/Delete/5
-
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
-        {            
-            Project project = db.Projects.Find(id);
             db.Projects.Remove(project);
             db.SaveChanges();
             return RedirectToAction("Index");

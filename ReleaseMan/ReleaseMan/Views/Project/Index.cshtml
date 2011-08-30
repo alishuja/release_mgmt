@@ -1,53 +1,23 @@
 ﻿@model IEnumerable<ReleaseMan.Models.Project>
-
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Projects</h2>
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table>
-    <tr>
-        <th>
-            Name
-        </th>
-        <th>
-            Description
-        </th>
-        <th>
-            Releases
-        </th>
-        <th></th>
-    </tr>
+<h2>Projects</h2>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            <ul>
-                <li>@Html.ActionLink("Releases", "Index", "Release")</li>
-                @foreach (var release in item.Releases) { 
-                    <li>
-                <!--    @Html.DisplayFor(modelItem => release.Name) -->
-                    @Html.ActionLink(release.Name, "Details", "Release", new { id = release.ID }, null)
-                    </li>
-                }
-            </ul>
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-        </td>
-    </tr>
-}
-
-</table>
+<div>
+    <ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            <h2>@Html.DisplayFor(modelItem => item.Name)</h2>
+            <p>@Html.DisplayFor(modelItem => item.Description)</p>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID })
+            @Html.ActionLink("Details", "Details", new { id=item.ID })
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { onclick = "return confirm('Sure you want to delete?');"})
+        </li>
+    }
+    </ul>
+</div>
