@@ -15,9 +15,9 @@
             <h2>@Html.DisplayFor(modelItem => item.Name)</h2>
             <p>@Html.DisplayFor(modelItem => item.Description)</p>
 			<div class="bar-wrap"><div class="bar" style="width: 12%;"><p class="center">12&#37;</p></div></div>
-            @Html.ActionLink("Edit", "Edit", "Project", null, new { @class = "buttonlink right", id=item.ID })
-            @Html.ActionLink("Details", "Details", "Project", null, new { @class = "buttonlink right", id = item.ID })
-            @Html.ActionLink("Delete", "Delete", "Project", null, new { @class = "buttonlink right", id = item.ID, onclick = "return confirm('Sure you want to delete?');" })
+            @Html.ActionLink("Edit", "Edit", "Project", new { id = item.ID }, new { @class = "buttonlink right" })
+            @Html.ActionLink("Details", "Details", "Project", new { id = item.ID }, new { @class = "buttonlink right" })
+            @Html.ActionLink("Delete", "Delete", "Project", new { id = item.ID }, new { @class = "buttonlink right", onclick = "return confirm('Sure you want to delete?');" })
         </li>
     }
     </ul>

@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using ReleaseMan.Models;
 
 namespace ReleaseMan.Controllers
-{ 
+{
     public class ReleaseController : Controller
     {
         private ProjectDBContext db = new ProjectDBContext();
@@ -34,11 +34,18 @@ namespace ReleaseMan.Controllers
         //
         // GET: /Release/Create
 
-        public ActionResult Create()
+        public ActionResult Create(int id = 0)
         {
+            Project Project;
+            if (id > 0)
+            {
+                Project = db.Projects.Find(id);
+                ViewBag.Projectname = Project.Name;
+            }
+            
             ViewBag.ProjectId = new SelectList(db.Projects, "ID", "Name");
             return View();
-        } 
+        }
 
         //
         // POST: /Release/Create
@@ -50,16 +57,16 @@ namespace ReleaseMan.Controllers
             {
                 db.Releases.Add(release);
                 db.SaveChanges();
-                return RedirectToAction("Details", "Project", new { id = release.ProjectId });  
+                return RedirectToAction("Details", "Project", new { id = release.ProjectId });
             }
 
             ViewBag.ProjectId = new SelectList(db.Projects, "ID", "Name", release.ProjectId);
             return View(release);
         }
-        
+
         //
         // GET: /Release/Edit/5
- 
+
         public ActionResult Edit(int id)
         {
             Release release = db.Releases.Find(id);
@@ -85,13 +92,13 @@ namespace ReleaseMan.Controllers
 
         //
         // GET: /Release/Delete/5
- 
+
         public ActionResult Delete(int id)
         {
             Release release = db.Releases.Find(id);
             db.Releases.Remove(release);
             db.SaveChanges();
-            return RedirectToAction("Details", "Project", new { id = release.ProjectId});
+            return RedirectToAction("Details", "Project", new { id = release.ProjectId });
         }
 
         protected override void Dispose(bool disposing)

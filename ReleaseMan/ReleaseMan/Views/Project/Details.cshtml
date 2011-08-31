@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<p>@Html.ActionLink("Create New Release", "Create", "Release")</p>
+<p>@Html.ActionLink("Create New Release", "Create", "Release", new { id = Model.ID }, null)</p>
 
 <h2>Project: @Html.DisplayFor(model => model.Name)</h2>
 
