@@ -35,15 +35,12 @@
 <div class="gird_6">
     <h2>Stories:</h2>
     <ul class="item-list half-list">
-    @foreach (var release in Model.Releases)
+    @foreach (var story in Model.Stories)
     {
-        foreach (var story in release.Stories)
-        {
             <li>
                 <h2>@Html.DisplayFor(modelitem => story.Name)</h2>
 
             </li>
-        }
     }
     </ul>
 </div>

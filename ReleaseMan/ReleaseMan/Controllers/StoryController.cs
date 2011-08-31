@@ -34,9 +34,9 @@ namespace ReleaseMan.Controllers
         //
         // GET: /Story/Create
 
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            ViewBag.ReleaseId = new SelectList(db.Releases, "ID", "Name");
+            ViewBag.ProjectId = new SelectList(db.Projects, "ID", "Name", id);
             return View();
         } 
 
@@ -48,7 +48,6 @@ namespace ReleaseMan.Controllers
         {
             if (ModelState.IsValid)
             {
-                story.Release = null;
                 db.Stories.Add(story);
                 db.SaveChanges();
                 return RedirectToAction("Index");  

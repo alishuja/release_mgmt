@@ -38,7 +38,7 @@ namespace ReleaseMan.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Project");
                     }
                 }
                 else
@@ -58,7 +58,7 @@ namespace ReleaseMan.Controllers
         {
             FormsAuthentication.SignOut();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Project");
         }
 
         //
@@ -84,7 +84,7 @@ namespace ReleaseMan.Controllers
                 if (createStatus == MembershipCreateStatus.Success)
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Project");
                 }
                 else
                 {

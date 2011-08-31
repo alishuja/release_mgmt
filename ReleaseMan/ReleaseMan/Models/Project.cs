@@ -16,6 +16,7 @@ namespace ReleaseMan.Models
         public string Description { get; set; }
 
         public virtual ICollection<Release> Releases { get; set; }
+        public virtual ICollection<Story> Stories { get; set; }
 
     }
 

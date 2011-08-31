@@ -16,6 +16,7 @@ namespace ReleaseMan.Controllers
         //
         // GET: /Project/
 
+        [Authorize]
         public ViewResult Index()
         {
             return View(db.Projects.ToList());
@@ -93,6 +94,29 @@ namespace ReleaseMan.Controllers
         {
             Project project = db.Projects.Find(id);
             return View(project);
+
+        }
+        
+        public ActionResult Fixture()
+        {
+            ProjectDBContext db = new ProjectDBContext();
+ 
+            for (int i = 0; i < 3; i++)
+                db.Projects.Add(new Project() { Name = String.Format("Project {0}", i), Description = "Project Description" }); db.SaveChanges();
+            foreach (Project p in db.Projects)
+                for (int i = 0; i < 3; i++)
+                    db.Releases.Add(new Release() { Name = String.Format("Release {0}", i), ProjectId = p.ID }); db.SaveChanges();
+            foreach (Release r in db.Releases) {
+                for (int i = 0; i < 3; i++)
+                    db.Issues.Add(new Issue() { Name = String.Format("Issue {0}", i), Description = "issue Description", ReleaseId = r.ID }); db.SaveChanges();
+                for (int i = 0; i < 3; i++)
+                    db.Stories.Add(new Story() { Name = String.Format("Story {0}", i), Description = "Story Description", ProjectId = 2 }); db.SaveChanges();
+                for (int i = 0; i < 3; i++)
+                    db.ReleaseNotes.Add(new ReleaseNote() { Name = String.Format("ReleaseNote {0}", i), Description = "ReleaseNote Description", ReleaseId = r.ID }); db.SaveChanges();
+            }
+            db.Projects.Add(new Project() { Name = "Empty", Description = "empty project description" }); db.SaveChanges();
+
+            return RedirectToAction("Index");
 
         }
 
