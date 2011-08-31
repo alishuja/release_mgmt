@@ -89,6 +89,13 @@ namespace ReleaseMan.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Manage(int id)
+        {
+            Project project = db.Projects.Find(id);
+            return View(project);
+
+        }
+
         protected override void Dispose(bool disposing)
         {
             db.Dispose();

@@ -1,0 +1,42 @@
+﻿@model ReleaseMan.Models.Project
+@{
+    ViewBag.Title = "Manage.cshtml";
+}
+
+<div class="grid_8 secondary-actions">
+    <h2>Manage releases for project: @Html.DisplayFor(model => model.Name)</h2>
+    <p>Project description: @Html.DisplayFor(model => model.Description)</p>
+</div>
+<div class="grid_4 secondary-actions">
+    <p>
+        @Html.ActionLink("+ Release", "Create", "Release", new {id = Model.ID }, new {@class = "buttonlink right" })
+        @Html.ActionLink("+ Story", "Create", "Story", new {id = Model.ID }, new {@class = "buttonlink right" })
+    </p>
+</div>
+<div class="clear"></div>
+<div class="gird_6">
+    <ul class="item-list half-list">
+    @foreach (var release in Model.Releases)
+    {
+            <li>
+                <h2>@Html.DisplayFor(modelitem => release.Name)</h2>
+
+            </li>
+    }
+    </ul>
+</div>
+<div class="gird_6">
+    <ul class="item-list half-list">
+    @foreach (var release in Model.Releases)
+    {
+        foreach (var story in release.Stories)
+        {
+            <li>
+                <h2>@Html.DisplayFor(modelitem => story.Name)</h2>
+
+            </li>
+        }
+    }
+    </ul>
+</div>
+<div class="clear"></div>

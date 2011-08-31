@@ -37,17 +37,23 @@
     margin: 10px 0px 10px 0px;
 }
 
-ul.item-list {
+.item-list {
 	list-style-type: none;
 	float: left;
+	width: 100%;
 }
 
-ul.item-list li {
+.item-list li {
 	float: left;
-	width: 920px;
+	width: 100%;
 	padding: 10px;
 	margin: 5px 0px 5px 0px;
 	background-color: #CCC;
+}
+
+.half-list li{
+    max-width: 450px;
+    margin: 0px 0px 0px 10px;
 }
 
 .bar-wrap {

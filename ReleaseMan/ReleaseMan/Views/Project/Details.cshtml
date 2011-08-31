@@ -9,9 +9,27 @@
     <p>Project description: @Html.DisplayFor(model => model.Description)</p>
 </div>
 <div class="grid_4 secondary-actions">
-    <p>@Html.ActionLink("+ Release", "Create", "Release", new {id = Model.ID }, new {@class = "buttonlink right" })</p>
+    <p>
+        @Html.ActionLink("+ Release", "Create", "Release", new {id = Model.ID }, new {@class = "buttonlink right" })
+        @Html.ActionLink("Manage releases", "Manage", "Project", new {id = Model.ID }, new {@class = "buttonlink right" })
+    </p>
 </div>
 <div class="clear">
+</div>
+<div class="grid_12">
+<ul class="item-list">
+    <li>
+    <h3>Overall progress:</h3>
+    <div class="bar-wrap"><div class="bar" style="width: 95%;"><p class="center">95&#37;</p></div></div>
+		<h3>Timeline:</h3>
+		<div class="bar-wrap">
+			<div class="bar" style="width: 20%;"><p class="center">Release 1</p></div>
+			<div class="bar" style="width: 10%; margin-left: 20%;"><p class="center">Release 2</p></div>
+			<div class="bar" style="width: 30%; margin-left: 30%;"><p class="center">Release 3</p></div>
+			<div class="bar" style="width: 40%; margin-left: 60%;"><p class="center">Release 4</p></div>
+		</div>
+    </li>
+    </ul>
 </div>
 <div class="grid_12">
     <ul class="item-list">
