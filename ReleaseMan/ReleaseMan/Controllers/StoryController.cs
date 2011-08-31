@@ -48,6 +48,7 @@ namespace ReleaseMan.Controllers
         {
             if (ModelState.IsValid)
             {
+                story.Release = null;
                 db.Stories.Add(story);
                 db.SaveChanges();
                 return RedirectToAction("Index");  

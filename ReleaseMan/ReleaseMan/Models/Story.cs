@@ -11,11 +11,12 @@ namespace ReleaseMan.Models
     {
         [Key]
         public int ID { get; set; }
-        public int ReleaseId { get; set; }
+        public int? ReleaseId { get; set; }
 
         [Required]
         public string Name { get; set; }
         public string Description { get; set; }
+        public int Estimate { get; set; }
 
         public virtual Release Release { get; set; }
 

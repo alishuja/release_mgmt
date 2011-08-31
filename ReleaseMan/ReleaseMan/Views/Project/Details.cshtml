@@ -6,7 +6,6 @@
 <div class="clear"></div>
 <div class="grid_12"><hr /></div>
 <div class="clear"></div>
-
 <div class="grid_8 secondary-actions">
     <h2>Project: @Html.DisplayFor(model => model.Name)</h2>
     <p>Project description: @Html.DisplayFor(model => model.Description)</p>
@@ -43,7 +42,7 @@
         {
         <li>
             <h2>@Html.DisplayFor(modelItem => item.Name)</h2>
-            <div class="bar-wrap"><div class="bar" style="width: 30%;"><p class="center">12&#37;</p></div></div>
+            <div class="bar-wrap"><div class="bar" style="width: 30%;"><p class="center">3 / @Html.DisplayFor(modelItem => item.Capacity) hours</p></div></div>
             @Html.ActionLink("Edit", "Edit", "Release", new { id = item.ID }, new { @class = "buttonlink right" })
             @Html.ActionLink("Details", "Details", "Release", new { id = item.ID }, new { @class = "buttonlink right" })
             @Html.ActionLink("Delete", "Delete", "Release", new { id = item.ID }, new { @class = "buttonlink right", onclick = "return confirm('Sure you want to delete?');" })

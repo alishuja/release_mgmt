@@ -15,6 +15,7 @@ namespace ReleaseMan.Models
 
         [Required]
         public string Name { get; set; }
+        public int Capacity { get; set; }
 
         public virtual Project Project { get; set; }
         public virtual ICollection<Issue> Issues { get; set; }
