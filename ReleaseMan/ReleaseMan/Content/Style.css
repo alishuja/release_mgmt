@@ -51,9 +51,12 @@
 	background-color: #CCC;
 }
 
-.half-list li{
-    max-width: 450px;
-    margin: 0px 0px 0px 10px;
+.half-list {
+    width: 445px;
+}
+.half-list li {
+    max-width: 445px;
+    margin: 10px 10px 0px 0px;
 }
 
 .bar-wrap {
