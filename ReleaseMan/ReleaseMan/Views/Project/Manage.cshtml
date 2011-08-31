@@ -3,6 +3,9 @@
     ViewBag.Title = "Manage.cshtml";
 }
 
+<script src="@Url.Content("~/Scripts/jquery-ui-1.8.11.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/DragDrop.js")" type="text/javascript"></script>
+
 <div class="clear"></div>
 <div class="grid_12"><hr /></div>
 <div class="clear"></div>
@@ -25,7 +28,7 @@
     <ul class="item-list half-list">
     @foreach (var release in Model.Releases)
     {
-            <li>
+            <li class="droppable" releaseid="@release.ID">
                 <h2>@Html.DisplayFor(modelitem => release.Name)</h2>
 
             </li>
@@ -37,10 +40,11 @@
     <ul class="item-list half-list">
     @foreach (var story in Model.Stories)
     {
-            <li>
-                <h2>@Html.DisplayFor(modelitem => story.Name)</h2>
-
+        if (story.ReleaseId == null) {
+            <li class="draggable" storyid="@story.ID">
+                <h2>@Html.DisplayFor(model => story.Name)</h2>
             </li>
+        }
     }
     </ul>
 </div>

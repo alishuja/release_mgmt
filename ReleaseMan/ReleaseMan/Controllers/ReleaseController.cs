@@ -95,6 +95,22 @@ namespace ReleaseMan.Controllers
             return RedirectToAction("Details", "Project", new { id = release.ProjectId });
         }
 
+        public ActionResult Ajax(int releaseId, int storyId)
+        {
+            try
+            {
+                //Release release = db.Releases.Find(releaseId);
+                Story story = db.Stories.Find(storyId);
+                story.ReleaseId = releaseId;
+                db.Entry(story).State = EntityState.Modified;
+                db.SaveChanges();
+                return Json(new { Message = true });
+            }
+            catch {
+                return Json(new { Message = false });
+            }
+        }
+
         protected override void Dispose(bool disposing)
         {
             db.Dispose();
