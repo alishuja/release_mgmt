@@ -3,6 +3,10 @@
     ViewBag.Title = "Manage.cshtml";
 }
 
+<div class="clear"></div>
+<div class="grid_12"><hr /></div>
+<div class="clear"></div>
+
 <div class="grid_8 secondary-actions">
     <h2>Manage releases for project: @Html.DisplayFor(model => model.Name)</h2>
     <p>Project description: @Html.DisplayFor(model => model.Description)</p>
@@ -13,6 +17,8 @@
         @Html.ActionLink("+ Story", "Create", "Story", new {id = Model.ID }, new {@class = "buttonlink right" })
     </p>
 </div>
+<div class="clear"></div>
+<div class="grid_12"><hr /></div>
 <div class="clear"></div>
 <div class="grid_6">
     <h2 style="width:30px">Releases:</h2>

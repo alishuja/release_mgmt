@@ -2,11 +2,16 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<div class="clear"></div>
+<div class="grid_12"><hr /></div>
+<div class="clear"></div>
 <div class="grid_12 secondary-actions">
     <h2>Projects</h2>
     @Html.ActionLink("+ Project", "Create", "Project", null, new { @class = "buttonlink right action-link"})
 </div>
+<div class="clear"></div>
+<div class="grid_12"><hr /></div>
+<div class="clear"></div>
 <div class="grid_12">
     <ul class="item-list">
     @foreach (var item in Model)
