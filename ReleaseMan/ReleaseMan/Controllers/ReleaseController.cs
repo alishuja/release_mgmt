@@ -36,14 +36,8 @@ namespace ReleaseMan.Controllers
 
         public ActionResult Create(int id = 0)
         {
-            Project Project;
-            if (id > 0)
-            {
-                Project = db.Projects.Find(id);
-                ViewBag.Projectname = Project.Name;
-            }
             
-            ViewBag.ProjectId = new SelectList(db.Projects, "ID", "Name");
+            ViewBag.ProjectId = new SelectList(db.Projects, "ID", "Name", id);
             return View();
         }
 

@@ -37,12 +37,12 @@
     margin: 10px 0px 10px 0px;
 }
 
-.item-list {
+ul.item-list {
 	list-style-type: none;
 	float: left;
 }
 
-.item-list li {
+ul.item-list li {
 	float: left;
 	width: 920px;
 	padding: 10px;
