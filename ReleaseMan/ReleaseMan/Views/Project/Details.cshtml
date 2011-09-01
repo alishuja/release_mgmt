@@ -72,9 +72,10 @@
 </div>
 <div class="grid_12">
     <ul class="item-list">
-        @foreach (var Release in Model.Releases) {
+        @foreach (var Release in Model.Releases)
+        {
             foreach (var story in Release.Stories) { ReleaseHours += story.Estimate; }
- 
+
             percentage = (int)(Release.Capacity > 0 ? (ReleaseHours / Release.Capacity) * 100 : 100);
             string barcolor = percentage > 100 ? "background-color:red;" : "";
             
@@ -92,7 +93,13 @@
                 @Html.ActionLink("Edit", "Edit", "Release", new { id = Release.ID }, new { @class = "buttonlink right" })
                 @Html.ActionLink("Details", "Details", "Release", new { id = Release.ID }, new { @class = "buttonlink right" })
                 @Html.ActionLink("Delete", "Delete", "Release", new { id = Release.ID }, new { @class = "buttonlink right", onclick = "return confirm('Sure you want to delete?');" })
-                @Html.ActionLink(@Release.Notes.Last().Name, "Details", "Note", new { id = @Release.Notes.Last().ID }, new { @class = "buttonlink left" })
+            
+                @if (Release.Notes.Count() > 0)
+                  {
+                      @Html.ActionLink(Release.Notes.Last().Name, "Details", "Note", new { id = Release.Notes.Last().ID }, new { @class = "buttonlink left" });
+                  }
+                
+               
             </li>
         }
     </ul>

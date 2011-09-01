@@ -15,6 +15,7 @@ namespace ReleaseMan.Models
 
         [Required]
         public string Name { get; set; }
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
         public virtual Release Release { get; set; }

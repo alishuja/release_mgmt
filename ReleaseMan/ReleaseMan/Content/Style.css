@@ -65,7 +65,12 @@
 
 .half-list {
     width: 445px;
+    
 }
+.half-list li p {
+
+}
+
 .half-list li {
     max-width: 445px;
     margin: 10px 10px 0px 0px;

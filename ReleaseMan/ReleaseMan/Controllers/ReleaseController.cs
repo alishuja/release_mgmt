@@ -36,7 +36,6 @@ namespace ReleaseMan.Controllers
 
         public ActionResult Create(int id = 0)
         {
-
             ViewBag.ProjectId = new SelectList(db.Projects, "ID", "Name", id);
             return View();
         }
@@ -51,7 +50,7 @@ namespace ReleaseMan.Controllers
             {
                 db.Releases.Add(release);
                 db.SaveChanges();
-                return RedirectToAction("Details", "Project", new { id = release.ProjectId });
+                return RedirectToAction("Manage", "Project", new { id = release.ProjectId });
             }
 
             ViewBag.ProjectId = new SelectList(db.Projects, "ID", "Name", release.ProjectId);
@@ -78,7 +77,7 @@ namespace ReleaseMan.Controllers
             {
                 db.Entry(release).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Project", new { id = release.ProjectId });
             }
             ViewBag.ProjectId = new SelectList(db.Projects, "ID", "Name", release.ProjectId);
             return View(release);

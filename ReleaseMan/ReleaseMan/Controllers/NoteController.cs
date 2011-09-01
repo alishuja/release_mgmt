@@ -35,9 +35,9 @@ namespace ReleaseMan.Controllers
         //
         // GET: /Note/Create
 
-        public ActionResult Create()
+        public ActionResult Create(int id = 0)
         {
-            ViewBag.ReleaseId = new SelectList(db.Releases, "ID", "Name");
+            ViewBag.ReleaseId = new SelectList(db.Releases, "ID", "Name", id);
             return View();
         } 
 
@@ -51,7 +51,7 @@ namespace ReleaseMan.Controllers
             {
                 db.ReleaseNotes.Add(releasenote);
                 db.SaveChanges();
-                return RedirectToAction("Index");  
+                return RedirectToAction("Details", "Release", new { id = releasenote.ReleaseId });  
             }
 
             ViewBag.ReleaseId = new SelectList(db.Releases, "ID", "Name", releasenote.ReleaseId);
@@ -78,7 +78,7 @@ namespace ReleaseMan.Controllers
             {
                 db.Entry(releasenote).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Release", new { id = releasenote.ReleaseId });  
             }
             ViewBag.ReleaseId = new SelectList(db.Releases, "ID", "Name", releasenote.ReleaseId);
             return View(releasenote);

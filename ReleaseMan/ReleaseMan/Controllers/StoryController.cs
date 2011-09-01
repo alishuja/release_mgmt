@@ -54,8 +54,8 @@ namespace ReleaseMan.Controllers
             }
 
             ViewBag.ReleaseId = new SelectList(db.Releases, "ID", "Name", story.ReleaseId);
-            //return View(story); 
-            return RedirectToAction("Manage", "Project", new { id = story.ProjectId });
+            return View(story); 
+ 
         }
         
         //

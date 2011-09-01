@@ -56,8 +56,8 @@ namespace ReleaseMan.Controllers
             }
 
             ViewBag.ReleaseId = new SelectList(db.Releases, "ID", "Name", issue.ReleaseId);
-            //return View(issue); 
-            return RedirectToAction("Details", "Release", new { id = issue.ReleaseId });
+            return View(issue); 
+
         }
         
         //
@@ -80,7 +80,7 @@ namespace ReleaseMan.Controllers
             {
                 db.Entry(issue).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Release", new { id = issue.ReleaseId }); 
             }
             ViewBag.ReleaseId = new SelectList(db.Releases, "ID", "Name", issue.ReleaseId);
             return View(issue);
