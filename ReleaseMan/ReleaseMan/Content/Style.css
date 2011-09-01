@@ -79,6 +79,7 @@
 	-webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+    oveflow hidden;
 }
 
 .bar {
@@ -87,11 +88,16 @@
 	-webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+    min-width: 1px;
 }
 
-p.center {
+p.center 
+{
+    margin-right: auto;
+    margin-left: auto;
 	text-align: center;
-	color: #EEE;
+	color: #333;
+    width: 150px;
 }
 
 .inner-list {
