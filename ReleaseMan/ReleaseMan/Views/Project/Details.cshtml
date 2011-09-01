@@ -80,6 +80,7 @@
             
             <li>
                 <h2>@Release.Name</h2>
+                <p>Stories: @Release.Stories.Count</p>
                 <div class="bar-wrap">
                     <div class="bar" style=" width: @Math.Min(percentage, 100).ToString()%; @barcolor ">
                         <p class="center">
@@ -91,6 +92,7 @@
                 @Html.ActionLink("Edit", "Edit", "Release", new { id = Release.ID }, new { @class = "buttonlink right" })
                 @Html.ActionLink("Details", "Details", "Release", new { id = Release.ID }, new { @class = "buttonlink right" })
                 @Html.ActionLink("Delete", "Delete", "Release", new { id = Release.ID }, new { @class = "buttonlink right", onclick = "return confirm('Sure you want to delete?');" })
+                @Html.ActionLink(@Release.Notes.Last().Name, "Details", "Note", new { id = @Release.Notes.Last().ID }, new { @class = "buttonlink left" })
             </li>
         }
     </ul>

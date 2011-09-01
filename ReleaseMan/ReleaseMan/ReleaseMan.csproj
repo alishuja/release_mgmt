@@ -82,6 +82,7 @@
   <ItemGroup>
     <Content Include="Content\960.css" />
     <Content Include="Content\reset.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="Content\Style.css" />
     <Content Include="Content\text.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />

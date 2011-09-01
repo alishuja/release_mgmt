@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using ReleaseMan.Models;
 
 namespace ReleaseMan.Controllers
-{ 
+{
     public class ProjectController : Controller
     {
         private ProjectDBContext db = new ProjectDBContext();
@@ -28,9 +28,10 @@ namespace ReleaseMan.Controllers
         public ViewResult Details(int id = 0)
         {
             Project project = db.Projects.Find(id);
-            if (project == null) {
+            if (project == null)
+            {
 
-                }
+            }
             return View(project);
         }
 
@@ -40,7 +41,7 @@ namespace ReleaseMan.Controllers
         public ActionResult Create()
         {
             return View();
-        } 
+        }
 
         //
         // POST: /Project/Create
@@ -52,15 +53,15 @@ namespace ReleaseMan.Controllers
             {
                 db.Projects.Add(project);
                 db.SaveChanges();
-                return RedirectToAction("Index");  
+                return RedirectToAction("Index");
             }
 
             return View(project);
         }
-        
+
         //
         // GET: /Project/Edit/5
- 
+
         public ActionResult Edit(int id = 0)
         {
             Project project = db.Projects.Find(id);
@@ -84,10 +85,20 @@ namespace ReleaseMan.Controllers
 
         //
         // GET: /Project/Delete/5
- 
+
         public ActionResult Delete(int id = 0)
         {
             Project project = db.Projects.Find(id);
+            foreach (Release item in project.Releases)
+            {
+                foreach (Story story in item.Stories)
+                    story.ReleaseId = null;
+                foreach (Issue issue in item.Issues)
+                    issue.ReleaseId = null;
+                foreach (ReleaseNote note in item.Notes)
+                    note.ReleaseId = null;
+            }
+
             db.Projects.Remove(project);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -90,6 +90,16 @@ namespace ReleaseMan.Controllers
         public ActionResult Delete(int id)
         {
             Release release = db.Releases.Find(id);
+            
+            
+
+            foreach (Story story in release.Stories)
+                story.ReleaseId = null;
+            foreach (Issue issue in release.Issues)
+                issue.ReleaseId = null;
+            foreach (ReleaseNote note in release.Notes)
+                note.ReleaseId = null;
+
             db.Releases.Remove(release);
             db.SaveChanges();
             return RedirectToAction("Details", "Project", new { id = release.ProjectId });
@@ -119,6 +129,7 @@ namespace ReleaseMan.Controllers
                 return Json(new { Message = false });
             }
         }
+
 
         protected override void Dispose(bool disposing)
         {

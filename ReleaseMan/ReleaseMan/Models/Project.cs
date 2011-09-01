@@ -28,6 +28,17 @@ namespace ReleaseMan.Models
         public DbSet<Issue> Issues { get; set; }
         public DbSet<ReleaseNote> ReleaseNotes { get; set; }
         public DbSet<Story> Stories { get; set; }
+
+
+  /*      protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Project>()
+                .HasRequired(p => p.Releases)
+                .WithMany()
+                .HasForeignKey(u => u.ID).WillCascadeOnDelete(false);
+            base.OnModelCreating(modelBuilder);
+        }*/
+
     }
  
 
