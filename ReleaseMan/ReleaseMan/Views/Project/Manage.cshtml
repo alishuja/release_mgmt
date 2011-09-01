@@ -11,6 +11,11 @@
 <div class="clear"></div>
 
 <div class="grid_8 secondary-actions">
+    <p>
+    @Html.ActionLink("All Projects /", "Index", "Project", null, null)
+    @Html.ActionLink("Details /", "Details", "Project", new { id = Model.ID } , null)
+    @Html.ActionLink("Manage /", "Manage", "Project", new { id = Model.ID } , null)
+    </p>
     <h2>Manage releases for project: @Html.DisplayFor(model => model.Name)</h2>
     <p>Project description: @Html.DisplayFor(model => model.Description)</p>
 </div>

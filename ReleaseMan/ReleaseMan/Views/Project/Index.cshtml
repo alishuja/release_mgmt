@@ -5,10 +5,18 @@
 <div class="clear"></div>
 <div class="grid_12"><hr /></div>
 <div class="clear"></div>
-<div class="grid_12 secondary-actions">
+<div class="grid_8 secondary-actions">
+    <p>@Html.ActionLink("All Projects /", "Index", "Project", null, null)</p>
+   
     <h2>Projects</h2>
-    @Html.ActionLink("+ Project", "Create", "Project", null, new { @class = "buttonlink right action-link"})
+    
 </div>
+<div class="grid_4 secondary-actions">
+    <p>
+    @Html.ActionLink("+ Project", "Create", "Project", null, new { @class = "buttonlink right action-link"})
+    </p>
+</div>
+
 <div class="clear"></div>
 <div class="grid_12"><hr /></div>
 <div class="clear"></div>
@@ -22,7 +30,7 @@
 			<div class="bar-wrap"><div class="bar" style="width: 12%;"><p class="center">12&#37;</p></div></div>
             @Html.ActionLink("Edit", "Edit", "Project", new { id = item.ID }, new { @class = "buttonlink right" })
             @Html.ActionLink("Details", "Details", "Project", new { id = item.ID }, new { @class = "buttonlink right" })
-            @Html.ActionLink("Delete", "Delete", "Project", new { id = item.ID }, new { @class = "buttonlink right", onclick = "return confirm('Sure you want to delete?');" })
+            @Html.ActionLink("Delete", "Delete", "Project", new { id = item.ID }, new { @class = "buttonlink right", onclick = "return confirm('Sure you want to delete this project?');" })
         </li>
     }
     </ul>

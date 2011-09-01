@@ -3,7 +3,11 @@
 @{
     ViewBag.Title = "Details";
 }
-
+    <p>
+    @Html.ActionLink("All Projects /", "Index", "Project", null, null)
+    @Html.ActionLink("Details /", "Details", "Project", new { id = Model.ID } , null)
+    @Html.ActionLink("Release /", "Details", "Release", new { id = Model.ID } , null)
+    </p>
 <h2>Project: @Html.DisplayFor(model => model.Project.Name)</h2>
 
 <h3>Release: @Html.DisplayFor(model => model.Name)</h3>

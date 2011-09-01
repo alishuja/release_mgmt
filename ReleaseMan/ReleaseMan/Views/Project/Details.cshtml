@@ -7,6 +7,11 @@
 <div class="grid_12"><hr /></div>
 <div class="clear"></div>
 <div class="grid_8 secondary-actions">
+    <p>
+        @Html.ActionLink("All Projects /", "Index", "Project", null, null)
+        @Html.ActionLink("Details /", "Details", "Project", null, null)
+    </p>
+
     <h2>Project: @Html.DisplayFor(model => model.Name)</h2>
     <p>Project description: @Html.DisplayFor(model => model.Description)</p>
 </div>
@@ -45,7 +50,7 @@
             <div class="bar-wrap"><div class="bar" style="width: 30%;"><p class="center">3 / @Html.DisplayFor(modelItem => item.Capacity) hours</p></div></div>
             @Html.ActionLink("Edit", "Edit", "Release", new { id = item.ID }, new { @class = "buttonlink right" })
             @Html.ActionLink("Details", "Details", "Release", new { id = item.ID }, new { @class = "buttonlink right" })
-            @Html.ActionLink("Delete", "Delete", "Release", new { id = item.ID }, new { @class = "buttonlink right", onclick = "return confirm('Sure you want to delete?');" })
+            @Html.ActionLink("Delete", "Delete", "Release", new { id = item.ID }, new { @class = "buttonlink right", onclick = "return confirm('Sure you want to delete this release?');" })
         </li>
         }
     </ul>

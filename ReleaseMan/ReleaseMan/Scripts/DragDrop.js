@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $(".draggable").draggable({
         revert: "invalid",
-        cursorAt: { cursor: "crosshair", top: -5, left: -5 },
+        //  cursorAt: { cursor: "crosshair", top: -5, left: -5 },
         start: function () {
             $(this).addClass("being-dragged");   // change the dimensions to make the draggable fit
         },

@@ -50,11 +50,12 @@ namespace ReleaseMan.Controllers
             {
                 db.Stories.Add(story);
                 db.SaveChanges();
-                return RedirectToAction("Index");  
+                return RedirectToAction("Manage", "Project", new { id = story.ProjectId });
             }
 
             ViewBag.ReleaseId = new SelectList(db.Releases, "ID", "Name", story.ReleaseId);
-            return View(story);
+            //return View(story); 
+            return RedirectToAction("Manage", "Project", new { id = story.ProjectId });
         }
         
         //
