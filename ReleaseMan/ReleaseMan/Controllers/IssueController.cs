@@ -27,7 +27,7 @@ namespace ReleaseMan.Controllers
         //
         // GET: /Issue/Details/5
 
-        public ViewResult Details(int id)
+        public ViewResult Details(int id = 0)
         {
             Issue issue = db.Issues.Find(id);
             return View(issue);
@@ -36,9 +36,9 @@ namespace ReleaseMan.Controllers
         //
         // GET: /Issue/Create
 
-        public ActionResult Create()
+        public ActionResult Create(int id = 0)
         {
-            ViewBag.ReleaseId = new SelectList(db.Releases, "ID", "Name");
+            ViewBag.ReleaseId = new SelectList(db.Releases, "ID", "Name", id);
             return View();
         } 
 
@@ -52,17 +52,18 @@ namespace ReleaseMan.Controllers
             {
                 db.Issues.Add(issue);
                 db.SaveChanges();
-                return RedirectToAction("Index");  
+                return RedirectToAction("Details", "Release", new { id = issue.ReleaseId });  
             }
 
             ViewBag.ReleaseId = new SelectList(db.Releases, "ID", "Name", issue.ReleaseId);
-            return View(issue);
+            //return View(issue); 
+            return RedirectToAction("Details", "Release", new { id = issue.ReleaseId });
         }
         
         //
         // GET: /Issue/Edit/5
  
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id = 0)
         {
             Issue issue = db.Issues.Find(id);
             ViewBag.ReleaseId = new SelectList(db.Releases, "ID", "Name", issue.ReleaseId);
@@ -88,7 +89,7 @@ namespace ReleaseMan.Controllers
         //
         // GET: /Issue/Delete/5
  
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id = 0 )
         {
             Issue issue = db.Issues.Find(id);
             return View(issue);

@@ -26,7 +26,7 @@ namespace ReleaseMan.Controllers
         //
         // GET: /Note/Details/5
 
-        public ViewResult Details(int id)
+        public ViewResult Details(int id = 0)
         {
             ReleaseNote releasenote = db.ReleaseNotes.Find(id);
             return View(releasenote);
@@ -61,7 +61,7 @@ namespace ReleaseMan.Controllers
         //
         // GET: /Note/Edit/5
  
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id = 0)
         {
             ReleaseNote releasenote = db.ReleaseNotes.Find(id);
             ViewBag.ReleaseId = new SelectList(db.Releases, "ID", "Name", releasenote.ReleaseId);
@@ -87,7 +87,7 @@ namespace ReleaseMan.Controllers
         //
         // GET: /Note/Delete/5
  
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id = 0)
         {
             ReleaseNote releasenote = db.ReleaseNotes.Find(id);
             return View(releasenote);

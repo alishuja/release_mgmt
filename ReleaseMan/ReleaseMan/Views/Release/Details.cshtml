@@ -1,30 +1,80 @@
 ﻿@model ReleaseMan.Models.Release
-
 @{
     ViewBag.Title = "Details";
 }
+<div class="clear">
+</div>
+<div class="grid_12">
+    <hr />
+</div>
+<div class="clear">
+</div>
+<div class="grid_8 secondary-actions">
     <p>
-    @Html.ActionLink("All Projects /", "Index", "Project", null, null)
-    @Html.ActionLink("Details /", "Details", "Project", new { id = Model.ID } , null)
-    @Html.ActionLink("Release /", "Details", "Release", new { id = Model.ID } , null)
+        @Html.ActionLink("All Projects /", "Index", "Project", null, null)
+        @Html.ActionLink(@Model.Project.Name + " /", "Details", "Project", new { id = Model.ProjectId }, null)
+        @Html.ActionLink(@Model.Name + " /", "Details", "Release", new { id = Model.ID }, null)
     </p>
-<h2>Project: @Html.DisplayFor(model => model.Project.Name)</h2>
+    <h2>
+        Project: @Html.DisplayFor(model => model.Project.Name)</h2>
+    <p>
+        Project description: @Html.DisplayFor(model => model.Project.Description)</p>
+    <h3>
+        Release: @Html.DisplayFor(model => model.Name)</h3>
+</div>
 
-<h3>Release: @Html.DisplayFor(model => model.Name)</h3>
+<div class="grid_4 secondary-actions">
+    <p>
+        @Html.ActionLink("Manage releases", "Manage", "Project", new { id = Model.ProjectId }, new { @class = "buttonlink right" })
+        @Html.ActionLink("+ Note", "Create", "Note", new { id = Model.ID }, new { @class = "buttonlink right" })
+        @Html.ActionLink("+ Issue", "Create", "Issue", new { id = Model.ID }, new { @class = "buttonlink right" })
+    </p>
+</div>
 
-<p>
-    @Html.ActionLink("Edit release details", "Edit", new { id=Model.ID })
-</p>
+<div class="clear">
+</div>
 
-<div>
-    <h3>Release stories:</h3>
-    <ul>
-    @foreach (var item in Model.Stories)
-    {
-        <li>
-            <h4>Story: @Html.DisplayFor(modelItem => item.Name)</h4>
-            <p>Description: @Html.DisplayFor(modelItem => item.Description)</p>
-        </li>
-    }
+<div class="grid_12">
+    <hr />
+</div>
+
+<div class="clear">
+</div>
+
+<div class="grid_12">
+    <ul class="item-list">
+        <h3>Issues:</h3>
+
+        @foreach (var item in Model.Issues)
+        {
+            <li>
+                <h4>Issue: @Html.DisplayFor(modelItem => item.Name)</h4>
+                <p>Description: @Html.DisplayFor(modelItem => item.Description)</p>
+                <p>Fixed: @Html.DisplayFor(modelItem => item.Fixed)</p>
+                <p>@Html.ActionLink("Edit", "Edit", "Issue", new { id = item.ID }, new { @class = "buttonlink left" })</p>
+            </li>
+        }
+    </ul>
+</div>
+
+<div class="grid_12">
+    <hr />
+</div>
+<div class="clear">
+</div>
+
+<div class="grid_12">
+    <ul class="item-list">
+        <h3>Release stories:</h3>
+
+        @foreach (var item in Model.Stories)
+        {
+            <li>
+                <h4>Story: @Html.DisplayFor(modelItem => item.Name)</h4>
+                <p>Description: @Html.DisplayFor(modelItem => item.Description)</p>
+                <p>Estimate: @Html.DisplayFor(modelItem => item.Estimate)</p>
+                <p>@Html.ActionLink("Edit", "Edit", "Story", new { id = item.ID }, new { @class = "buttonlink left" })</p>
+            </li>
+        }
     </ul>
 </div>

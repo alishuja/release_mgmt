@@ -9,7 +9,7 @@
 <div class="grid_8 secondary-actions">
     <p>
         @Html.ActionLink("All Projects /", "Index", "Project", null, null)
-        @Html.ActionLink("Details /", "Details", "Project", null, null)
+        @Html.ActionLink(@Model.Name + " /", "Details", "Project", null, null)
     </p>
 
     <h2>Project: @Html.DisplayFor(model => model.Name)</h2>
@@ -43,15 +43,28 @@
 </div>
 <div class="grid_12">
     <ul class="item-list">
-        @foreach (var item in Model.Releases)
-        {
-        <li>
-            <h2>@Html.DisplayFor(modelItem => item.Name)</h2>
-            <div class="bar-wrap"><div class="bar" style="width: 30%;"><p class="center">3 / @Html.DisplayFor(modelItem => item.Capacity) hours</p></div></div>
-            @Html.ActionLink("Edit", "Edit", "Release", new { id = item.ID }, new { @class = "buttonlink right" })
-            @Html.ActionLink("Details", "Details", "Release", new { id = item.ID }, new { @class = "buttonlink right" })
-            @Html.ActionLink("Delete", "Delete", "Release", new { id = item.ID }, new { @class = "buttonlink right", onclick = "return confirm('Sure you want to delete this release?');" })
-        </li>
+        @{double ProjectCapacity = 0, ProjectHours = 0, ReleaseHours = 0; int percentage = 0;}
+        @foreach (var Release in Model.Releases) {
+            ProjectCapacity += Release.Capacity;
+            foreach (var story in Release.Stories) { ReleaseHours += story.Estimate; }
+ 
+            percentage = (int)(Release.Capacity > 0 ? (ReleaseHours / Release.Capacity) * 100 : 100);
+            <li>
+                <h2>@Html.DisplayFor(modelItem => Release.Name)</h2>
+                <div class="bar-wrap">
+                    <div class="bar" style=" width: @Html.DisplayFor(modelItem => percentage)%;">
+                        <p class="center">
+                            @Html.DisplayFor(modelItem => ReleaseHours) / @Html.DisplayFor(modelItem => Release.Capacity) hours
+                        </p>
+                    </div>
+                </div>
+                @{ProjectHours += ReleaseHours; ReleaseHours = 0;}
+                @Html.ActionLink("Edit", "Edit", "Release", new { id = Release.ID }, new { @class = "buttonlink right" })
+                @Html.ActionLink("Details", "Details", "Release", new { id = Release.ID }, new { @class = "buttonlink right" })
+                @Html.ActionLink("Delete", "Delete", "Release", new { id = Release.ID }, new { @class = "buttonlink right", onclick = "return confirm('Sure you want to delete?');" })
+            </li>
         }
     </ul>
+    total ProjectCapacity @Html.DisplayFor(modelItem => ProjectCapacity)
+    , total ProjectHours @Html.DisplayFor(modelItem => ProjectHours)
 </div>

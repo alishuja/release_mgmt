@@ -75,3 +75,17 @@ p.center {
 	text-align: center;
 	color: #EEE;
 }
+
+.inner-list {
+    list-style-type: none;
+}
+
+.inner-list li {
+    background-color: #EEE;
+    width: 425px;
+}
+
+.inner-list li a 
+{
+    color: #F00;
+}

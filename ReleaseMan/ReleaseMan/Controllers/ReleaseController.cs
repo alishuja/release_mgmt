@@ -36,7 +36,7 @@ namespace ReleaseMan.Controllers
 
         public ActionResult Create(int id = 0)
         {
-            
+
             ViewBag.ProjectId = new SelectList(db.Projects, "ID", "Name", id);
             return View();
         }
@@ -100,13 +100,22 @@ namespace ReleaseMan.Controllers
             try
             {
                 //Release release = db.Releases.Find(releaseId);
+
                 Story story = db.Stories.Find(storyId);
-                story.ReleaseId = releaseId;
+                if (releaseId == -1)
+                {
+                    story.ReleaseId = null;
+                }
+                else
+                {
+                    story.ReleaseId = releaseId;
+                }
                 db.Entry(story).State = EntityState.Modified;
                 db.SaveChanges();
                 return Json(new { Message = true });
             }
-            catch {
+            catch
+            {
                 return Json(new { Message = false });
             }
         }

@@ -25,7 +25,7 @@ namespace ReleaseMan.Controllers
         //
         // GET: /Story/Details/5
 
-        public ViewResult Details(int id)
+        public ViewResult Details(int id = 0)
         {
             Story story = db.Stories.Find(id);
             return View(story);
@@ -34,7 +34,7 @@ namespace ReleaseMan.Controllers
         //
         // GET: /Story/Create
 
-        public ActionResult Create(int id)
+        public ActionResult Create(int id = 0)
         {
             ViewBag.ProjectId = new SelectList(db.Projects, "ID", "Name", id);
             return View();
@@ -61,7 +61,7 @@ namespace ReleaseMan.Controllers
         //
         // GET: /Story/Edit/5
  
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id = 0)
         {
             Story story = db.Stories.Find(id);
             ViewBag.ReleaseId = new SelectList(db.Releases, "ID", "Name", story.ReleaseId);
@@ -87,7 +87,7 @@ namespace ReleaseMan.Controllers
         //
         // GET: /Story/Delete/5
  
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int id = 0)
         {
             Story story = db.Stories.Find(id);
             return View(story);

@@ -35,19 +35,29 @@
     {
             <li class="droppable" releaseid="@release.ID">
                 <h2>@Html.DisplayFor(modelitem => release.Name)</h2>
-
+                <ul class="inner-list">
+                     @foreach (var story in release.Stories) { 
+                        <li storyid="@Html.DisplayFor(modelitem => story.ID)">
+                            <h2>@Html.DisplayFor(model => story.Name) (@Html.DisplayFor(model => story.Estimate) hours)</h2>
+                            <p>@Html.DisplayFor(model => story.Description)</p>
+                            <a href="#" class="removelink" onclick="return false;">X</a>
+                        </li>
+                     }
+                </ul>
             </li>
     }
     </ul>
 </div>
 <div class="gird_6">
     <h2>Stories:</h2>
-    <ul class="item-list half-list">
+    <ul class="item-list half-list" id="storypool">
     @foreach (var story in Model.Stories)
     {
-        if (story.ReleaseId == null) {
+        if (story.ReleaseId == null)
+        {
             <li class="draggable" storyid="@story.ID">
-                <h2>@Html.DisplayFor(model => story.Name)</h2>
+                <h2>@Html.DisplayFor(model => story.Name) (@Html.DisplayFor(model => story.Estimate) hours)</h2>
+                <p>@Html.DisplayFor(model => story.Description)</p>
             </li>
         }
     }
