@@ -41,21 +41,38 @@
 <div class="clear">
 </div>
 
-<div class="grid_12">
-    <ul class="item-list">
-        <h3>Issues:</h3>
+<div class="grid_6">
+    <h3 style="width:30px">Issues:</h3>
+    <ul class="item-list half-list">
 
         @foreach (var item in Model.Issues)
         {
             <li>
-                <h4>Issue: @Html.DisplayFor(modelItem => item.Name)</h4>
-                <p>Description: @Html.DisplayFor(modelItem => item.Description)</p>
+                <h4>@Html.DisplayFor(modelItem => item.Name)</h4>
+                <p>@Html.DisplayFor(modelItem => item.Description)</p>
                 <p>Fixed: @Html.DisplayFor(modelItem => item.Fixed)</p>
                 <p>@Html.ActionLink("Edit", "Edit", "Issue", new { id = item.ID }, new { @class = "buttonlink left" })</p>
             </li>
         }
     </ul>
 </div>
+
+<div class="grid_6">
+    <h3 style="width:30px">Notes:</h3>
+    <ul class="item-list half-list">
+
+        @foreach (var item in Model.Notes)
+        {
+            <li>
+                <h4>@Html.DisplayFor(modelItem => item.Name)</h4>
+                <p>@Html.DisplayFor(modelItem => item.Description)</p>    
+                <p>@Html.ActionLink("Edit", "Edit", "Note", new { id = item.ID }, new { @class = "buttonlink left" })</p>
+            </li>
+        }
+    </ul>
+</div>
+
+
 
 <div class="grid_12">
     <hr />
@@ -71,7 +88,7 @@
         {
             <li>
                 <h4>Story: @Html.DisplayFor(modelItem => item.Name)</h4>
-                <p>Description: @Html.DisplayFor(modelItem => item.Description)</p>
+                <p>@Html.DisplayFor(modelItem => item.Description)</p>
                 <p>Estimate: @Html.DisplayFor(modelItem => item.Estimate)</p>
                 <p>@Html.ActionLink("Edit", "Edit", "Story", new { id = item.ID }, new { @class = "buttonlink left" })</p>
             </li>

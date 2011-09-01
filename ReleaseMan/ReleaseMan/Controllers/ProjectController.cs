@@ -28,6 +28,9 @@ namespace ReleaseMan.Controllers
         public ViewResult Details(int id = 0)
         {
             Project project = db.Projects.Find(id);
+            if (project == null) {
+
+                }
             return View(project);
         }
 
