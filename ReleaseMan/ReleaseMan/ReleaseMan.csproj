@@ -81,6 +81,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\960.css" />
+    <Content Include="Content\css\uniform.default.css" />
+    <Content Include="Content\images\bg-input-focus.png" />
+    <Content Include="Content\images\bg-input.png" />
+    <Content Include="Content\images\sprite.png" />
     <Content Include="Content\reset.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Style.css" />
@@ -114,6 +118,7 @@
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\DragDrop.js" />
+    <Content Include="Scripts\Forms.js" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
     <Content Include="Scripts\jquery-1.5.1.min.js" />
@@ -121,6 +126,7 @@
     <Content Include="Scripts\jquery-ui-1.8.11.js" />
     <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.16.custom.min.js" />
+    <Content Include="Scripts\jquery.uniform.min.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
