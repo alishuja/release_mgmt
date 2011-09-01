@@ -13,7 +13,7 @@
 <div class="grid_8 secondary-actions">
     <p>
     @Html.ActionLink("All Projects /", "Index", "Project", null, null)
-    @Html.ActionLink("Details /", "Details", "Project", new { id = Model.ID } , null)
+    @Html.ActionLink(@Model.Name + " /", "Details", "Project", new { id = Model.ID } , null)
     @Html.ActionLink("Manage /", "Manage", "Project", new { id = Model.ID } , null)
     </p>
     <h2>Manage releases for project: @Html.DisplayFor(model => model.Name)</h2>
@@ -48,7 +48,7 @@
     }
     </ul>
 </div>
-<div class="gird_6">
+<div class="grid_6">
     <h2>Stories:</h2>
     <ul class="item-list half-list" id="storypool">
     @foreach (var story in Model.Stories)
